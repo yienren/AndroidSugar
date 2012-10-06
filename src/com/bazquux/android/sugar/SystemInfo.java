@@ -37,4 +37,8 @@ public class SystemInfo {
         context.getWindowManager().getDefaultDisplay().getMetrics( metrics );
         return metrics.heightPixels;
     }
+    
+    static public boolean isInLandscape( Context context ) {
+        return ( context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE );
+    }
 }
