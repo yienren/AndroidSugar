@@ -22,7 +22,7 @@ public class Menus {
         if( menuItem != null ) {
             Drawable d = context.getResources().getDrawable( resId );
             d.mutate();
-            d.setColorFilter( 0xA000ff00, filterMode );
+            d.setColorFilter( color, filterMode );
             menuItem.setIcon( d );
         }
     }
