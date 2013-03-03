@@ -4,7 +4,24 @@ import android.util.Log;
 
 public class SugarLog {
     
+    @SuppressWarnings( "rawtypes" )
+    private static String getTag( Object o ) {
+        if ( o == null ) {
+            return "null";
+        } else if ( o instanceof Class ) {
+            return ( (Class) o ).getSimpleName();
+        } else {
+            return o.getClass().getSimpleName();
+        }
+    }
+    
     public static void d( Object o, String fmt, Object ... params ) {
-        Log.d( o.getClass().getSimpleName(), String.format( fmt, params ) );
+        Log.d( getTag( o ), String.format( fmt, params ) );
+    }
+    
+    public static void x( Object o, String fmt, Object ... params ) {
+        if ( BuildConfig.DEBUG ) {
+            Log.d( getTag( o ), String.format( fmt, params ) );
+        }
     }
 }
