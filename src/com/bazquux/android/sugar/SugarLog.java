@@ -14,7 +14,11 @@ public class SugarLog {
             return o.getClass().getSimpleName();
         }
     }
-    
+
+    public static void e( Object o, String fmt, Object ... params ) {
+        Log.e( getTag( o ), String.format( fmt, params ) );
+    }
+
     public static void d( Object o, String fmt, Object ... params ) {
         Log.d( getTag( o ), String.format( fmt, params ) );
     }
