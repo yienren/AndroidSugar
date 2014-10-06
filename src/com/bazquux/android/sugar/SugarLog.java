@@ -24,8 +24,8 @@ public class SugarLog {
     }
     
     public static void x( Object o, String fmt, Object ... params ) {
-        if ( BuildConfig.DEBUG ) {
+//        if ( BuildConfig.DEBUG ) {
             Log.d( getTag( o ), String.format( fmt, params ) );
-        }
+//        }
     }
 }
