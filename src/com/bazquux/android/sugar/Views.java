@@ -6,12 +6,21 @@ import android.widget.ToggleButton;
 
 public class Views {
 
+    static public <T extends View> T findOrThrow( View view, int resourceId ) {
+        View child = view.findViewById( resourceId );
+        if ( child == null ) {
+            throw new NullPointerException( "View not found!" );
+        } else {
+            return (T) child;
+        }
+    }
+
     static public void setVisibilitySafe( View v, int visibility ) {
         if ( v != null ) {
             v.setVisibility( visibility );
         }
     }
-    
+
     static public void setEnabledSafe( View v, boolean enabled ) {
         if ( v != null ) {
             v.setEnabled( enabled );
