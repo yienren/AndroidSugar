@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 public class SquareLayout extends LinearLayout {
 
     double mScale = 1.00;
-    
+
     public SquareLayout( Context context ) {
         super( context );
     }
@@ -28,6 +28,8 @@ public class SquareLayout extends LinearLayout {
             height = (int) ( width / mScale + 0.5 );
         }
 
-        super.onMeasure( MeasureSpec.makeMeasureSpec( width, MeasureSpec.EXACTLY ), MeasureSpec.makeMeasureSpec( height, MeasureSpec.EXACTLY ) );
+        super.onMeasure(
+            MeasureSpec.makeMeasureSpec( width, MeasureSpec.EXACTLY ),
+            MeasureSpec.makeMeasureSpec( height, MeasureSpec.EXACTLY ) );
     }
 }
