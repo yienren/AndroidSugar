@@ -3,11 +3,13 @@ package com.bazquux.android.sugar;
 import android.util.Log;
 
 public class SugarLog {
-    
-    @SuppressWarnings( "rawtypes" )
+
+    @SuppressWarnings("rawtypes")
     private static String getTag( Object o ) {
         if ( o == null ) {
             return "null";
+        } else if ( o instanceof String ) {
+            return (String) o;
         } else if ( o instanceof Class ) {
             return ( (Class) o ).getSimpleName();
         } else {
@@ -15,15 +17,19 @@ public class SugarLog {
         }
     }
 
-    public static void e( Object o, String fmt, Object ... params ) {
+    public static void e( Object o, String fmt, Object... params ) {
         Log.e( getTag( o ), String.format( fmt, params ) );
     }
 
-    public static void d( Object o, String fmt, Object ... params ) {
+    public static void w( Object o, String fmt, Object... params ) {
+        Log.w( getTag( o ), String.format( fmt, params ) );
+    }
+
+    public static void d( Object o, String fmt, Object... params ) {
         Log.d( getTag( o ), String.format( fmt, params ) );
     }
-    
-    public static void x( Object o, String fmt, Object ... params ) {
+
+    public static void x( Object o, String fmt, Object... params ) {
         if ( BuildConfig.DEBUG ) {
             Log.d( getTag( o ), String.format( fmt, params ) );
         }
